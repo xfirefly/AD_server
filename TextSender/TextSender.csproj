@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9291257B-DD0D-47E8-B552-51F95566C82D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TextSender</RootNamespace>
+    <AssemblyName>InfoSender</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>info-icon.png.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cyotek.Windows.Forms.ColorPicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=58daa28b0b2de221, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Cyotek.Windows.Forms.ColorPicker\Release\Cyotek.Windows.Forms.ColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.8\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.4\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdZip.cs" />
+    <Compile Include="BgTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BgTemplate.designer.cs">
+      <DependentUpon>BgTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BoxCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BoxCtrl.Designer.cs">
+      <DependentUpon>BoxCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="commom\BluCodec.cs" />
+    <Compile Include="commom\SQLiteDBHelper.cs" />
+    <Compile Include="commom\InvokeHelper.cs" />
+    <Compile Include="comm\Cmd.cs" />
+    <Compile Include="FFMPEG.cs" />
+    <Compile Include="frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddPicture.Designer.cs">
+      <DependentUpon>frmAddPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="comm\Scene.cs" />
+    <Compile Include="comm\AdProgram.cs" />
+    <Compile Include="control\ToolStripColorPickerDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="control\ToolStripColorPickerSplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlMoverOrResizer.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Box.cs" />
+    <Compile Include="frmMain.canvas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmMain.scene.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmMain.bg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmMain.subtitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmMain.ad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmSetVolume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetVolume.Designer.cs">
+      <DependentUpon>frmSetVolume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetTime.Designer.cs">
+      <DependentUpon>frmSetTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IAdUserControl.cs" />
+    <Compile Include="InputText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputText.Designer.cs">
+      <DependentUpon>InputText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="commom\IniFile.cs" />
+    <Compile Include="commom\Log.cs" />
+    <Compile Include="control\SubtitleCtrl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="commom\Profile.cs" />
+    <Compile Include="commom\Util.cs" />
+    <Compile Include="AdScene.cs" />
+    <Compile Include="NetUtils.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="MarqueeProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarqueeProgress.Designer.cs">
+      <DependentUpon>MarqueeProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExportPro.cs" />
+    <Compile Include="comm\Command.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource1.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SetSceneTiming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SetSceneTiming.Designer.cs">
+      <DependentUpon>SetSceneTiming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Singleton.cs" />
+    <Compile Include="network\BoradcastIP.cs" />
+    <Compile Include="network\ThreadedTcpSrvr.cs" />
+    <Compile Include="network\FileServer.cs" />
+    <Compile Include="rs232.cs" />
+    <Compile Include="control\GroupBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="network\ThreadPoolTcpSrvr.cs" />
+    <Compile Include="toast\FormAnimator.cs" />
+    <Compile Include="toast\NativeMethods.cs" />
+    <Compile Include="toast\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="toast\Notification.designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramRelease.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProgramRelease.Designer.cs">
+      <DependentUpon>ProgramRelease.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BgTemplate.en.resx">
+      <DependentUpon>BgTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BgTemplate.resx">
+      <DependentUpon>BgTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoxCtrl.en.resx">
+      <DependentUpon>BoxCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoxCtrl.resx">
+      <DependentUpon>BoxCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.en.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddPicture.en.resx">
+      <DependentUpon>frmAddPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddPicture.resx">
+      <DependentUpon>frmAddPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\ToolStripColorPickerDropDown.resx">
+      <DependentUpon>ToolStripColorPickerDropDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.zh-Hans.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.zh.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.en.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.zh-Hant.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetTime.en.resx">
+      <DependentUpon>frmSetTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetVolume.en.resx">
+      <DependentUpon>frmSetVolume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetVolume.resx">
+      <DependentUpon>frmSetVolume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetTime.resx">
+      <DependentUpon>frmSetTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputText.en.resx">
+      <DependentUpon>InputText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputText.resx">
+      <DependentUpon>InputText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarqueeProgress.resx">
+      <DependentUpon>MarqueeProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgramRelease.en.resx">
+      <DependentUpon>ProgramRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressForm.en.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resource1.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetSceneTiming.en.resx">
+      <DependentUpon>SetSceneTiming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetSceneTiming.resx">
+      <DependentUpon>SetSceneTiming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="toast\Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgramRelease.resx">
+      <DependentUpon>ProgramRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="msyh.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="pingfang.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtendedPaint\ExtendedPaint\ExtendedPaint.csproj">
+      <Project>{57cde75a-9496-4334-8f4b-ece29da316fd}</Project>
+      <Name>ExtendedPaint</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaterialSkin\MaterialSkin.csproj">
+      <Project>{8eb7611b-68cd-4b8b-987a-11717e2b250c}</Project>
+      <Name>MaterialSkin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.rtf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\text-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editing-Underline-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editing-Bold-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editing-Italic-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editing-Underline-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clock-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\q %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shape-move-back-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursor-Move-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-insert-text-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\film-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pictures-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editing-Underline-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="info-icon.png.ico" />
+    <None Include="Resources\copy-icon.png" />
+    <None Include="Resources\delete-icon1.png" />
+    <None Include="Resources\Modify-icon.png" />
+    <None Include="Resources\Rename-icon.png" />
+    <Content Include="screen_def.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\image001.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\image002.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\image003.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\image004.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\image005.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\image006.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\photos-icon.png" />
+    <None Include="Resources\video-camera-icon.png" />
+    <None Include="Resources\Status-audio-volume-high-icon.png" />
+    <None Include="Resources\Actions-go-next-view-icon.png" />
+    <None Include="Resources\Actions-go-previous-view-icon.png" />
+    <None Include="Resources\ID-icon.png" />
+    <None Include="Resources\Link-icon.png" />
+    <None Include="Resources\seo-chain-link-icon.png" />
+    <None Include="Resources\arrow-right-icon.png" />
+    <None Include="Resources\arrow-left-icon.png" />
+    <None Include="Resources\sign-right-icon.png" />
+    <None Include="Resources\sign-left-icon.png" />
+    <None Include="Resources\full-screen-icon.png" />
+    <None Include="Resources\symbol-delete-icon.png" />
+    <None Include="Resources\symbol-check-icon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>del $(TargetDir)*.xml</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
